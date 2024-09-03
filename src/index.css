@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Main container for the entire app */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 46.25rem;
+    /* Ensures the container takes the full viewport height */
+}
+
+/* Main content area that grows to fill the space */
+.main-content {
+    flex: 1;
+    /* This makes the main content area take the available space */
+
+    /* Optional padding for content */
+}
+
+/* Footer styles */
+footer {
+
+    /* Example background color */
+
+    /* Padding for the footer */
+    text-align: center;
+    /* Center text, optional */
+}

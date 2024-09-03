@@ -1,0 +1,11 @@
+.DOresponsive {
+    margin-left: 25%;
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .DOresponsive {
+        margin-left: 0;
+        width: 100%;
+    }
+}

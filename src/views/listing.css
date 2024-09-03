@@ -1,0 +1,71 @@
+.Mainlisting {
+    width: 25rem;
+}
+
+/* Listing Details */
+.listInd {
+    width: 66.666667%;
+
+}
+
+.showReviews {
+    width: 75%;
+}
+
+.w-100percent2 {
+    width: 75%;
+}
+
+.login {
+    margin-left: 14%;
+    width: 74%;
+}
+
+@media only screen and (max-width: 400px) {
+    .Mainlisting {
+        width: 21rem;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .listInd {
+        width: 100%;
+    }
+
+    .headding {
+        width: 100%;
+
+    }
+
+    .offset-2 {
+        margin-left: 0 !important;
+    }
+
+    .showReviews {
+        width: 92%;
+    }
+
+    .w-100percent,
+    .w-100percent2 {
+        width: 100%;
+    }
+
+    .login {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 401px) {
+    .Mainlisting {
+        width: 22rem;
+        /* Width for medium-sized screens */
+    }
+}
+
+/* @media only screen and (max-width: 400px) and (min-width:550px) {
+    .Mainlisting {
+        width: 25rem;
+    }
+} */
