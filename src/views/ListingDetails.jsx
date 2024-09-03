@@ -49,7 +49,6 @@ function ListingDetails() {
             }
         }
     };
-    console.log(users)
     
     const handleReviewChange = (e) => {
         const { name, value } = e.target;
@@ -122,14 +121,14 @@ function ListingDetails() {
                         {
                             reviews.map((item) => (
 
-                                <div key={item._id} class="p-1 w-100percent col-sm-6 mb-3 mb-sm-0">
+                                <div key={item._id} className="p-1 w-100percent col-sm-6 mb-3 mb-sm-0">
 
-                                    <div class="shadow-md shadow-inner card h-48 flex items-start	justify-between	">
-                                        <div class="card-body flex flex-column items-start justify-evenly w-full">
-                                            <h5 class="card-title">{item.author?.name || "@Muddu"}</h5>
-                                            <p class="starability-result" data-rating={item.rating}></p>
-                                            <p class="card-text">{item.comment}</p>
-                                            <a onClick={() => { handleDeleteReview(item) }} class="btn btn-primary">Delete</a>
+                                    <div className="shadow-md shadow-inner card h-48 flex items-start	justify-between	">
+                                        <div className="card-body flex flex-column items-start justify-evenly w-full">
+                                            <h5 className="card-title">{item.author?.name || "@Muddu"}</h5>
+                                            <p className="starability-result" data-rating={item.rating}></p>
+                                            <p className="card-text">{item.comment}</p>
+                                            <a onClick={() => { handleDeleteReview(item) }} className="btn btn-primary">Delete</a>
                                         </div>
                                     </div>
                                 </div>
