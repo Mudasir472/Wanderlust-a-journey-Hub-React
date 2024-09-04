@@ -24,7 +24,7 @@ export default function Signup() {
         e.preventDefault(); // Prevent default form submission
 
         try {
-            const resp = await axios.post("http://localhost:8090/listing/signup", formData, { withCredentials: true });
+            const resp = await axios.post("https://wanderlust-backend-qe8j.onrender.com/listing/signup", formData, { withCredentials: true });
 
             if (resp.status === 200) { // Check for successful response
                 const sessionId = resp.data.sessionId;
@@ -39,8 +39,7 @@ export default function Signup() {
             }
         } catch (error) {
             console.error('Error:', error);
-            navigate(error.response.data.redirectUrl);
-            toast.error(error ||"Email already Exists");
+            
         }
 
         setFormData({

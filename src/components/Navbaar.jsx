@@ -22,7 +22,7 @@ export default function Navbar() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get('http://localhost:8090/listing/detail', { withCredentials: true });
+                const response = await axios.get('https://wanderlust-backend-qe8j.onrender.com/listing/detail', { withCredentials: true });
                 setUser(response.data.user);
                 setIsLoggedIn(!!localStorage.getItem('sessionID'));
             } catch (error) {

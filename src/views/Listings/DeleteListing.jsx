@@ -21,7 +21,7 @@ function DeleteListing() {
 
             try {
                 hasDeleted.current = true; // Set flag to indicate delete attempt
-                const resp = await axios.delete(`http://localhost:8090/delete/${id}`, { withCredentials: true });
+                const resp = await axios.delete(`https://wanderlust-backend-qe8j.onrender.com/delete/${id}`, { withCredentials: true });
 
                 if (resp.status === 200) {
                     toast.error("Listing Deleted Successfully");

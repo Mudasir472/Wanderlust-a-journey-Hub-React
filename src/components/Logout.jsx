@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default async function Logout() {
     try {
-        const response = await axios.post('http://localhost:8090/listing/logout', {}, { withCredentials: true });
+        const response = await axios.post('https://wanderlust-backend-qe8j.onrender.com/listing/logout', {}, { withCredentials: true });
 
         if (response.status === 200) {
             console.log(response.data.message); // "Logout successful"

@@ -8,7 +8,7 @@ export default function Home() {
     useEffect(() => {
         const fetchListingData = async () => {
             try {
-                const response = await axios.get("http://localhost:8090/listings");
+                const response = await axios.get("https://wanderlust-backend-qe8j.onrender.com/listings");
                 setData(response.data);
             } catch (error) {
                 console.error("Error fetching listing data:", error);

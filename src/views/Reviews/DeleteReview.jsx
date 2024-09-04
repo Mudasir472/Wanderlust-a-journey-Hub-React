@@ -23,7 +23,7 @@ function DeleteReview() {
             if (!reviewId) return; // Exit if reviewId is not set
 
             try {
-                const resp = await axios.delete(`http://localhost:8090/${id}/delReview/${reviewId}`, { withCredentials: true });
+                const resp = await axios.delete(`https://wanderlust-backend-qe8j.onrender.com/${id}/delReview/${reviewId}`, { withCredentials: true });
 
                 if (resp.status === 200) {
                     toast.success("Review Deleted Successfully");

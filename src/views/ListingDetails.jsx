@@ -17,7 +17,7 @@ function ListingDetails() {
     useEffect(() => {
         const fetchListingData = async () => {
             try {
-                const response = await axios.get("http://localhost:8090/listings");
+                const response = await axios.get("https://wanderlust-backend-qe8j.onrender.com/listings");
                 setData(response.data);
             } catch (error) {
                 console.error("Error fetching listing data:", error);
@@ -41,7 +41,7 @@ function ListingDetails() {
     const submitReview = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`http://localhost:8090/review/${id}`, reviewData, { withCredentials: true });
+            const res = await axios.post(`https://wanderlust-backend-qe8j.onrender.com/review/${id}`, reviewData, { withCredentials: true });
             window.location.href = `/listing/${id}`
         } catch (error) {
             if (error.status === 401) {

@@ -22,7 +22,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const resp = await axios.post("http://localhost:8090/listing/login", formData, { withCredentials: true });
+            const resp = await axios.post("https://wanderlust-backend-qe8j.onrender.com/listing/login", formData, { withCredentials: true });
             if (resp.status === 200) {
                 const sessionId = resp.data.sessionId;
                 if (sessionId) {

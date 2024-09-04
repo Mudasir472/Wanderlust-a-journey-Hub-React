@@ -40,7 +40,7 @@ function UpdateListing() {
         setSuccess(false);
 
         try {
-            const resp = await axios.put(`http://localhost:8090/edit/${id}`, formData, { withCredentials: true });
+            const resp = await axios.put(`https://wanderlust-backend-qe8j.onrender.com/edit/${id}`, formData, { withCredentials: true });
             console.log("resp", resp)
             if (resp.status === 200) {
                 setSuccess(true);
