@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
@@ -53,20 +55,20 @@ export default function Navbar() {
                     </div>
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex flex-shrink-0 items-center">
-                            <a href="/">
+                            <Link to="/">
                                 <img
                                     alt="logo"
                                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                                     className="h-8 w-auto"
                                 />
-                            </a>
+                            </Link>
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 {navigation.map((item) => (
-                                    <a
+                                    <Link
                                         key={item.name}
-                                        href={item.href}
+                                        to={item.href}
                                         aria-current={item.current ? 'page' : undefined}
                                         className={classNames(
                                             item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -74,7 +76,7 @@ export default function Navbar() {
                                         )}
                                     >
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -94,34 +96,34 @@ export default function Navbar() {
                                 >
                                     <MenuItem>
                                         {({ active }) => (
-                                            <a
-                                                href="/userdetails"
+                                            <Link
+                                                to="/userdetails"
                                                 className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100' : ''} text-gray-700`}
                                             >
                                                 Your Profile
-                                            </a>
+                                            </Link>
                                         )}
                                     </MenuItem>
                                     <MenuItem>
                                         {({ active }) => (
-                                            <a
-                                                href="/logout"
+                                            <Link
+                                                to="/logout"
                                                 className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100' : ''} text-gray-700`}
                                             >
                                                 Sign out
-                                            </a>
+                                            </Link>
                                         )}
                                     </MenuItem>
                                 </MenuItems>
                             </Menu>
                         ) : (
                             <div className="text-white w-32 flex items-center justify-between">
-                                <a href="/login" className="hover:underline">
+                                <Link to="/login" className="hover:underline">
                                     Login
-                                </a>
-                                <a href="/signup" className="hover:underline">
+                                </Link>
+                                <Link to="/signup" className="hover:underline">
                                     Signup
-                                </a>
+                                </Link>
                             </div>
                         )}
                     </div>

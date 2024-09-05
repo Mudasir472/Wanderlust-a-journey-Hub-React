@@ -35,11 +35,15 @@ export default function Signup() {
                 // navigate(resp.data.redirectUrl); // Redirect to home page
                 window.location.href = resp.data.redirectUrl;
                 // toast.success("Registered Success");
+            }
+            else if (resp.status === 400){
+                toast.error(resp.data.message);
             } else {
                 console.error('Signup failed');
             }
         } catch (error) {
             console.error('Error:', error);
+            toast.error(error.response.data.message);
             
         }
 

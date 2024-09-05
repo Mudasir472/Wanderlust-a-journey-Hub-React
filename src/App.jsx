@@ -12,7 +12,6 @@ import Signup from "./components/Signup.jsx";
 import Logout from "./components/Logout.jsx";
 import UserProfile from "./components/User/UserProfile.jsx";
 import UpdateListing from "./views/Listings/UpdateListing.jsx";
-import DeleteListing from "./views/Listings/DeleteListing.jsx";
 import Review from "./views/Reviews/Review.jsx";
 
 
@@ -28,7 +27,6 @@ function App() {
               <Route path="/" element={<Home  />} />
               <Route path="/listing/:id" element={<ListingDetails />} />
               <Route path="/edit/:id" element={<UpdateListing />} />
-              <Route path="/delete/:id" element={<DeleteListing />} />
 
               {/* review */}
               <Route path="/review/:id" element={<Review />} />

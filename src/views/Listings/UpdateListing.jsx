@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Update.css"
 import URL from '../../../env'
+import { toast } from "react-toastify";
 
 function UpdateListing() {
     const navigate = useNavigate();
@@ -45,12 +46,14 @@ function UpdateListing() {
             console.log("resp", resp)
             if (resp.status === 200) {
                 setSuccess(true);
+                toast.success('Listing Update Successfull')
                 navigate("/");
             } else {
                 throw new Error('Update failed');
             }
         } catch (error) {
             setError('Please Login First');
+            toast.error("Please Login First");
             console.error('Error:', error);
             if (error.status === 401) {
                 console.log(error)
