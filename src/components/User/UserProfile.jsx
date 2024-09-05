@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import { toast } from "react-toastify"
 import "./user.css"
+import URL from "../../../env"
 
 function UserProfile() {
     const fileInputRef = useRef(null);
@@ -11,7 +12,7 @@ function UserProfile() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get("https://wanderlust-backend-qe8j.onrender.com/listing/profile", { withCredentials: true });
+                const response = await axios.get(`${URL}/listing/profile`, { withCredentials: true });
                 setUser(response.data.user);
                 setLoading(false);
             } catch (error) {
@@ -36,7 +37,7 @@ function UserProfile() {
             formData.append('profilePic', file);
 
             try {
-                const response = await axios.post('https://wanderlust-backend-qe8j.onrender.com/listing/changeprofile', formData, {
+                const response = await axios.post(`${URL}/listing/changeprofile`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import URL from "../../../env"
 function DeleteListing() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -21,7 +21,7 @@ function DeleteListing() {
 
             try {
                 hasDeleted.current = true; // Set flag to indicate delete attempt
-                const resp = await axios.delete(`https://wanderlust-backend-qe8j.onrender.com/delete/${id}`, { withCredentials: true });
+                const resp = await axios.delete(`${URL}/delete/${id}`, { withCredentials: true });
 
                 if (resp.status === 200) {
                     toast.error("Listing Deleted Successfully");

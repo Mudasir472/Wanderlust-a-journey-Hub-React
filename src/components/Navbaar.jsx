@@ -2,6 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import URL from "../../env"
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -22,7 +23,7 @@ export default function Navbar() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get('https://wanderlust-backend-qe8j.onrender.com/listing/detail', { withCredentials: true });
+                const response = await axios.get(`${URL}/listing/detail`, { withCredentials: true });
                 setUser(response.data.user);
                 setIsLoggedIn(!!localStorage.getItem('sessionID'));
             } catch (error) {

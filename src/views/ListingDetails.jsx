@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import { toast } from "react-toastify"
 import axios from 'axios';
 import "./listing.css"
-
+import URL from "../../env"
 function ListingDetails() {
     const navigate = useNavigate();
+    // const [reviewId, setReviewId] = useState(null);
+
     const { id } = useParams();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ function ListingDetails() {
     useEffect(() => {
         const fetchListingData = async () => {
             try {
-                const response = await axios.get("https://wanderlust-backend-qe8j.onrender.com/listings");
+                const response = await axios.get(`${URL}/listings`);
                 setData(response.data);
             } catch (error) {
                 console.error("Error fetching listing data:", error);
@@ -41,10 +43,11 @@ function ListingDetails() {
     const submitReview = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`https://wanderlust-backend-qe8j.onrender.com/review/${id}`, reviewData, { withCredentials: true });
+            const res = await axios.post(`${URL}/review/${id}`, reviewData, { withCredentials: true });
             window.location.href = `/listing/${id}`
         } catch (error) {
             if (error.status === 401) {
+                console.log(error)
                 toast.error("Please Login First")
             }
         }
@@ -65,11 +68,39 @@ function ListingDetails() {
         navigate(`/edit/${id}`, { state: { listing } });
     };
 
-    const handleDelete = () => {
-        navigate(`/delete/${id}`, { state: { listing } });
-    };
-    const handleDeleteReview = (item) => {
-        navigate(`/deleteReview/${id}`, { state: { item } });
+    // const handleDelete = () => {
+    //     navigate(`/delete/${id}`, { state: { listing } });
+    // };
+    const handleDeleteReview =async (item) => {
+        // navigate(`/deleteReview/${id}`, { state: { item } });
+        // Function to delete review
+        // const deleteReview = async () => {
+            // if (!reviewId) return; // Exit if reviewId is not set
+
+            try {
+                const resp = await axios.delete(`${URL}/${id}/delReview/${item._id}`, { withCredentials: true });
+
+                if (resp.status === 200) {
+                    toast.success("Review Deleted Successfully");
+                    // navigate(`/listing/${id}`); // Navigating to the listing page after deletion
+                    window.location.href = `/listing/${id}`
+                } else {
+                    throw new Error('Delete failed');
+                }
+            } catch (error) {
+                if (error.response?.status === 401) {
+                    toast.error("Please Login First");
+                    navigate(`/listing/${id}`);
+                }
+                if (error.response?.status === 402) {
+                    toast.error("Not Authenticated to delete");
+                    navigate(`/listing/${id}`);
+                } else {
+                    // toast.error("Delete operation failed");
+                }
+                console.error('Error:', error);
+            }
+        // };
     };
 
     if (loading) {
@@ -105,7 +136,7 @@ function ListingDetails() {
                     <button className='btn btn-primary' onClick={handleUpdate}>
                         Edit
                     </button>
-                    <button className='mx-4 btn btn-primary' onClick={handleDelete}>
+                    <button className='mx-4 btn btn-primary' onClick={handleDeleteReview}>
                         Delete Listing
                     </button>
                 </div>

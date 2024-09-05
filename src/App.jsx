@@ -14,7 +14,6 @@ import UserProfile from "./components/User/UserProfile.jsx";
 import UpdateListing from "./views/Listings/UpdateListing.jsx";
 import DeleteListing from "./views/Listings/DeleteListing.jsx";
 import Review from "./views/Reviews/Review.jsx";
-import DeleteReview from "./views/Reviews/DeleteReview.jsx";
 
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
 
               {/* review */}
               <Route path="/review/:id" element={<Review />} />
-              <Route path="/deleteReview/:id" element={<DeleteReview />} />
 
 
               <Route path="/login" element={<Login />} />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import URL from "../../env"
 
 export default function Signup() {
 
@@ -24,7 +25,7 @@ export default function Signup() {
         e.preventDefault(); // Prevent default form submission
 
         try {
-            const resp = await axios.post("https://wanderlust-backend-qe8j.onrender.com/listing/signup", formData, { withCredentials: true });
+            const resp = await axios.post(`${URL}/listing/signup`, formData, { withCredentials: true });
 
             if (resp.status === 200) { // Check for successful response
                 const sessionId = resp.data.sessionId;

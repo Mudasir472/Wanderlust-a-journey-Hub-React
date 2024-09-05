@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import "./User/user.css"
+import URL from "../../env"
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const resp = await axios.post("https://wanderlust-backend-qe8j.onrender.com/listing/login", formData, { withCredentials: true });
+            const resp = await axios.post(`${URL}/listing/login`, formData, { withCredentials: true });
             if (resp.status === 200) {
                 const sessionId = resp.data.sessionId;
                 if (sessionId) {
