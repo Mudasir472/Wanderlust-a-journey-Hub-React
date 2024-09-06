@@ -146,7 +146,7 @@ function ListingDetails() {
                     />
                     <div className="card-body">
                         <p className="card-text mb-3">{listing.description}</p>
-                        <p className='mb-3'>&#8377;{listing.price.toLocaleString("en-IN")}</p>
+                        <p className='mb-3'>&#8377;{listing.price.toLocaleString("en-IN")} / night</p>
                         <p className='mb-3'>{listing.location}</p>
                         <p className='mb-3'>{listing.country}</p>
                     </div>

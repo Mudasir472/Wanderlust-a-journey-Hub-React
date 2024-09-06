@@ -13,6 +13,8 @@ import Logout from "./components/Logout.jsx";
 import UserProfile from "./components/User/UserProfile.jsx";
 import UpdateListing from "./views/Listings/UpdateListing.jsx";
 import Review from "./views/Reviews/Review.jsx";
+import UpdateProfile from "./components/User/UpdateProfile.jsx";
+import ChangePassword from "./components/User/ChangePassword.jsx";
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/userdetails" element={<UserProfile />} />
+              <Route path="/updateuser" element={<UpdateProfile />} />
+              <Route path="/changepassword" element={<ChangePassword />} />
             </Routes>
           </div>
           <Footer />

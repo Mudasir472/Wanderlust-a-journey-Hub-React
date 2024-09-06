@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify"
 import "./user.css"
 import URL from "../../../env"
@@ -8,6 +9,7 @@ function UserProfile() {
     const fileInputRef = useRef(null);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -55,6 +57,13 @@ function UserProfile() {
         }
     };
 
+    const updateHandle = () => {
+        navigate("/updateuser",{state:{user}})
+    }
+    const changePassword = () => {
+        navigate("/changepassword",{state:{user}})
+    }
+
     return (
         <div className="user">
             <div className="my-4 bg-slate-100 p-5 DOresponsive  grid grid-cols-1 gap-4 justify-items-center">
@@ -91,7 +100,11 @@ function UserProfile() {
                 <p className="flex justify-between w-full items-center text-md">
                     <p>Email:</p> {user.email}
                 </p>
+                <p onClick={changePassword} className="btn btn-primary">change password</p>
             </div>
+            <button onClick={updateHandle} type="submit" className="btn btn-primary my-3 col-3 offset-5" >
+                {/* {loading ? 'Updating...' : 'Update'} */} Update
+            </button>
         </div>
     );
 }

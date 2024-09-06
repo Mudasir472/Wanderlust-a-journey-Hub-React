@@ -12,7 +12,7 @@ export default function Listings({ Data }) {
                                 <img style={{ height: "18rem", width: "25rem" }} className="h-40 w-full	card-img-top" src={item.image.url} alt="..." />
                                 <div >
                                     <p className="my-3 ml-3 card-text">{item.title}</p>
-                                    <p className="mb-3 ml-3 card-text">&#8377;{item.price.toLocaleString("en-IN")}</p>
+                                    <p className="mb-3 ml-3 card-text">&#8377;{item.price.toLocaleString("en-IN")} / night</p>
                                 </div>
                             </div></Link>
                         </div>

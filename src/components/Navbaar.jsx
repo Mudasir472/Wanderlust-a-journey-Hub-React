@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import URL from "../../env"
+import logo from "../assets/LogoC.jpg"
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -58,7 +59,7 @@ export default function Navbar() {
                             <Link to="/">
                                 <img
                                     alt="logo"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                    src={logo}
                                     className="h-8 w-auto"
                                 />
                             </Link>
