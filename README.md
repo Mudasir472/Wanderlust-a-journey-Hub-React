@@ -1,8 +1,15 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Wanderlust - MERN Stack Application
+Overview
+Wanderlust is a full-stack web application that allows users to book and rent out properties, similar to platforms like Airbnb. This project is built using the MERN stack (MongoDB, Express, React, Node.js), providing a seamless user experience for both travelers and property owners.
 
-Currently, two official plugins are available:
+Features
+User Authentication: Local and Google-based authentication using Passport.js.
+Property Listings: Users can browse available properties and book accommodations.
+Property Management: Hosts can list their properties and manage bookings.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tech Stack
+Frontend: React, CSS (Tailwind/Bootstrap)
+Backend: Node.js, Express
+Database: MongoDB
+Authentication: Passport.js (Local & Google)
